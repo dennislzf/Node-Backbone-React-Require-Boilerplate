@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+	div(ng-controller='AddPlaylistCtrl' )
+			div.row
+			div.col-md-6
+				h1 Unfinished Playlists
+				div.unfinishedplaylistcontainer
+
+			div.col-md-6  
+				button.btn.btn-large.button-right.btn-primary(ng-click ="addPlaylist()") Add PlayList
+
+			div.addplaylistcontainer#addplaylistcontainer(ng-show="showAddPlaylist")  
+				h1 Add New Playlist
+				input(type=text, placeholder = "Name")
+				button.btn-primary(ng-click="addNewSong()") Add Songs
+				div.addplaylist(ng-repeat="song in newSongs")
+					input(type="text", placeholder="youtubeurl" required)
+				button.btn-success(ng-click="savePlaylist()")
+				
+        
+
+
+	block add_scripts
+		script(src="/js/controllers/AddPlaylistController.js")
+
+    
